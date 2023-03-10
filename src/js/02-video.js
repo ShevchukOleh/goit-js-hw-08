@@ -7,11 +7,7 @@ const timeUpdate = function (time) {
     localStorage.setItem('videoplayer-current-time', JSON.stringify(time));
 }
 
-try {
-    player.on('timeupdate', throttle(timeUpdate, 1000));
-} catch (error) {
-    console.log(error.message);
-}
+player.on('timeupdate', throttle(timeUpdate, 1000));
 
 const saveTime = localStorage.getItem('videoplayer-current-time');
 const timeStop = JSON.parse(saveTime);
